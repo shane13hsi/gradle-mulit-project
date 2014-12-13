@@ -1,44 +1,44 @@
 allprojects {
-	repositories {
-		mavenLocal()
-		mavenCentral()
-	}
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 }
 
 ext.versions = [
-	spring: '3.2.12.RELEASE'
+        spring: '3.2.12.RELEASE'
 ]
 
 subprojects {
-	apply plugin: 'java'
-	sourceCompatibility = '1.6'
-  [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-	
-	group = "com.evanhsiwood.cooper"
+    apply plugin: 'java'
+    sourceCompatibility = '1.6'
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    group = "com.evanhsiwood.cooper"
 }
 
 project(':common') {
-	apply plugin: 'java'
-	dependencies {
-		
-	}
-	
+    apply plugin: 'java'
+    dependencies {
+
+    }
+
 }
 
 project(':api') {
-	apply plugin: 'java'
-	dependencies {
-		
-	}
-	
+    apply plugin: 'java'
+    dependencies {
+
+    }
+
 }
 
 project(':web') {
-	apply plugin: 'java'
-	dependencies {
-		
-	}
-	
+    apply plugin: 'java'
+    dependencies {
+
+    }
+
 }
 
 task wrapper(type: Wrapper) {
