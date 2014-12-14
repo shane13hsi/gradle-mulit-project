@@ -1,4 +1,5 @@
 apply from: file('gradle/convention.gradle')
+apply from: file('gradle/maven.gradle')
 
 buildscript {
     repositories {
@@ -19,5 +20,4 @@ allprojects {
 }
 
 subprojects {
-    group = "io.ehw.cooper"
 }

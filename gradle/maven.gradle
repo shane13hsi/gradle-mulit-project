@@ -1,0 +1,11 @@
+ext.artifact = [
+        group  : 'io.ehw.cooper',
+        name   : 'cooper',
+        version: '1.0.0-SNAPSHOT'
+]
+
+allprojects {
+    apply plugin: 'maven'
+    group = artifact.group
+    version = artifact.version
+}
