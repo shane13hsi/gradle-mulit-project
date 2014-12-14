@@ -4,6 +4,14 @@ version = '1.0.0-SNAPSHOT'
 subprojects {
     apply plugin: 'maven-publish'
 
+    model {
+        tasks.generatePomFileForMavenPublication {
+            destination = file("pom.xml")
+        }
+    }
+
+
+
 }
 
 project(":common") {
