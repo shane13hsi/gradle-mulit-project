@@ -1,4 +1,15 @@
-使用 Gradle 构建 Mult-projects
+使用 Gradle 构建 Multi-projects
+
+2014-12-14 更新
+
+使用 maven publish plugin 生成简单的 pom
+
+注意：parent pom 是手动增加的。
+
+主要的 trick 是使用新增的 MavenPom#withXml，`void withXml(Action<? super XmlProvider> action)`。
+
+如果要讲 Gradle 和 Maven 共存，还需要一些公司独有的配置，比如 hudson，scm，私有 Maven repository 等。再说。
+
 
 目的：
 
