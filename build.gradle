@@ -1,60 +1,23 @@
+apply from: file('gradle/convention.gradle')
+
 buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
+        jcenter()
     }
-}
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.0'
 }
 
 allprojects {
-    group = 'com.ehw.cooper'
-    version = '0.1.1-SNAPSHOT'
-}
-
-subprojects {
-    apply plugin: 'java'
-
+    apply plugin: 'idea'
     repositories {
         mavenLocal()
         mavenCentral()
+        jcenter()
     }
-
-    sourceCompatibility = 1.6
-    targetCompatibility = 1.6
-
-    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
 }
 
-project(':common') {
-
-    dependencies {
-        compile 'org.springframework:spring-webmvc:3.2.12.RELEASE'
-
-    }
-
-}
-
-project(':api') {
-
-    dependencies {
-        compile project(':common')
-    }
-
-}
-
-project(':web') {
-    apply plugin: 'war'
-
-    dependencies {
-        compile project(':common')
-        compile project(':api')
-
-        providedCompile 'javax.servlet:servlet-api:2.5'
-
-    }
-
+subprojects {
+    group = "io.ehw.cooper"
 }
