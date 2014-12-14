@@ -1,13 +1,8 @@
-// GRADLE-2087 workaround, perform after java plugin
-status = project.hasProperty('preferredStatus') ? project.preferredStatus : (version.contains('SNAPSHOT') ? 'snapshot' : 'release')
-
 subprojects { project ->
     apply plugin: 'java' // Plugin as major conventions
 
     sourceCompatibility = 1.6
 
-    // Restore status after Java plugin
-    status = rootProject.status
 }
 
 // Generate wrapper, which is distributed as part of source to alleviate the need of installing gradle

@@ -1,11 +1,52 @@
-ext.artifact = [
-        group  : 'io.ehw.cooper',
-        name   : 'cooper',
-        version: '1.0.0-SNAPSHOT'
-]
+group = 'io.ehw.cooper'
+version = '1.0.0-SNAPSHOT'
 
-allprojects {
-    apply plugin: 'maven'
-    group = artifact.group
-    version = artifact.version
+subprojects {
+    apply plugin: 'maven-publish'
+
+}
+
+project(":common") {
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId 'io.ehw.cooper'
+                version '1.0.0-SNAPSHOT'
+                artifactId 'common'
+
+                from components.java
+            }
+        }
+    }
+}
+
+project(":api") {
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId 'io.ehw.cooper'
+                version '1.0.0-SNAPSHOT'
+                artifactId 'api'
+
+                from components.java
+            }
+        }
+    }
+}
+
+project(":web") {
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId 'io.ehw.cooper'
+                version '1.0.0-SNAPSHOT'
+                artifactId 'web'
+
+                from components.java
+            }
+        }
+    }
 }
