@@ -5,12 +5,10 @@ subprojects {
     apply plugin: 'maven-publish'
 
     model {
-        tasks.generatePomFileForMavenPublication {
+        tasks.generatePomFileForMavenCustomPublication {
             destination = file("pom.xml")
         }
     }
-
-
 
 }
 
@@ -18,12 +16,18 @@ project(":common") {
 
     publishing {
         publications {
-            maven(MavenPublication) {
+            mavenCustom(MavenPublication) {
                 groupId "$rootProject.group"
                 version "$rootProject.version"
                 artifactId 'common'
 
+                pom.withXml {
+                    asNode().appendNode('name',
+                            'common')
+                }
+
                 from components.java
+
             }
         }
     }
@@ -33,10 +37,15 @@ project(":api") {
 
     publishing {
         publications {
-            maven(MavenPublication) {
+            mavenCustom(MavenPublication) {
                 groupId "$rootProject.group"
                 version "$rootProject.version"
                 artifactId 'api'
+
+                pom.withXml {
+                    asNode().appendNode('name',
+                            'api')
+                }
 
                 from components.java
             }
@@ -48,10 +57,16 @@ project(":web") {
 
     publishing {
         publications {
-            maven(MavenPublication) {
+            mavenCustom(MavenPublication) {
                 groupId "$rootProject.group"
                 version "$rootProject.version"
                 artifactId 'web'
+
+                pom.withXml {
+                    asNode().appendNode('name', 'web')
+                    asNode().appendNode('properties')
+                            .appendNode('env', 'alpha')
+                }
 
                 from components.java
             }
