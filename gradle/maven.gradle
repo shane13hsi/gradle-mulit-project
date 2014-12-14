@@ -12,63 +12,26 @@ subprojects {
 
 }
 
-project(":common") {
+subprojects.each { subproject ->
 
-    publishing {
-        publications {
-            mavenCustom(MavenPublication) {
-                groupId "$rootProject.group"
-                version "$rootProject.version"
-                artifactId 'common'
+    def name = subproject.name
 
-                pom.withXml {
-                    asNode().appendNode('name',
-                            'common')
+    project(":$name") {
+        publishing {
+            publications {
+                mavenCustom(MavenPublication) {
+                    groupId "$rootProject.group"
+                    version "$rootProject.version"
+                    artifactId "$name"
+
+                    pom.withXml {
+                        asNode().appendNode('name',
+                                "$name")
+                    }
+
+                    from components.java
+
                 }
-
-                from components.java
-
-            }
-        }
-    }
-}
-
-project(":api") {
-
-    publishing {
-        publications {
-            mavenCustom(MavenPublication) {
-                groupId "$rootProject.group"
-                version "$rootProject.version"
-                artifactId 'api'
-
-                pom.withXml {
-                    asNode().appendNode('name',
-                            'api')
-                }
-
-                from components.java
-            }
-        }
-    }
-}
-
-project(":web") {
-
-    publishing {
-        publications {
-            mavenCustom(MavenPublication) {
-                groupId "$rootProject.group"
-                version "$rootProject.version"
-                artifactId 'web'
-
-                pom.withXml {
-                    asNode().appendNode('name', 'web')
-                    asNode().appendNode('properties')
-                            .appendNode('env', 'alpha')
-                }
-
-                from components.java
             }
         }
     }

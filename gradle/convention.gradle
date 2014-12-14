@@ -1,3 +1,5 @@
+buildDir = 'target'
+
 subprojects { project ->
     apply plugin: 'java' // Plugin as major conventions
 

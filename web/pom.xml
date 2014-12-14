@@ -13,7 +13,4 @@
     </dependency>
   </dependencies>
   <name>web</name>
-  <properties>
-    <env>alpha</env>
-  </properties>
 </project>
