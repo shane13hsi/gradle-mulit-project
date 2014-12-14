@@ -11,8 +11,8 @@ project(":common") {
     publishing {
         publications {
             maven(MavenPublication) {
-                groupId 'io.ehw.cooper'
-                version '1.0.0-SNAPSHOT'
+                groupId "$rootProject.group"
+                version "$rootProject.version"
                 artifactId 'common'
 
                 from components.java
@@ -26,8 +26,8 @@ project(":api") {
     publishing {
         publications {
             maven(MavenPublication) {
-                groupId 'io.ehw.cooper'
-                version '1.0.0-SNAPSHOT'
+                groupId "$rootProject.group"
+                version "$rootProject.version"
                 artifactId 'api'
 
                 from components.java
@@ -41,8 +41,8 @@ project(":web") {
     publishing {
         publications {
             maven(MavenPublication) {
-                groupId 'io.ehw.cooper'
-                version '1.0.0-SNAPSHOT'
+                groupId "$rootProject.group"
+                version "$rootProject.version"
                 artifactId 'web'
 
                 from components.java
